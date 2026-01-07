@@ -2,35 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Onion Skin Project</title>
+    <title>Onion Skin Viewer</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/script.js"></script>
 </head>
 <body>
-
 <div class="app">
-    <!-- Leiste an der Seite -->
     <aside class="sidebar">
-        <div class="logo">icon</div>
-        <button id="upload  Btn">Upload images</button>
-        <input id="fileInput" type="file" accept="image/*" multiple hidden />
+        <div class="project-title">Projekt 1</div>
 
-        <div id="thumbList" class="thumb-list">
-            <!-- Bilder kommen denn hier ine -->
+        <div class="section-title">Images</div>
+
+        <div id="thumbGrid" class="thumb-grid">
+
+        </div>
+
+        <div class="sidebar-buttons">
+            <button id="importBtn">Import</button>
+            <button id="exportBtn">Export</button>
         </div>
     </aside>
 
-    <!-- Main area -->
-    <main class="main">
-        <div class="selected-wrapper">
-            <canvas id="onionCanvas"></canvas>
+    <div class="main">
+        <div class="top-bar">
+            <button id="playBtn">Play</button>
         </div>
-        <hr>
-        <div class="carousel" id="carousel">
-            <!-- Do sind die Bilder denna in einer Reihe -->
-        </div>
-    </main>
-</div>
 
-<script src="../js/script.js"></script>
+        <section class="preview-panel">
+        </section>
+
+        <div class="carousel" id="carousel">
+
+        </div>
+    </div>
+</div>
+<input id="fileInput" type="file" accept="image/*" multiple hidden />
 </body>
 </html>
