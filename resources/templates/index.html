@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>Onion Skin Project</title>
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
+<div class="app">
+    <!-- Leiste an der Seite -->
+    <aside class="sidebar">
+        <div class="logo">icon</div>
+        <button id="upload  Btn">Upload images</button>
+        <input id="fileInput" type="file" accept="image/*" multiple hidden />
+
+        <div id="thumbList" class="thumb-list">
+            <!-- Bilder kommen denn hier ine -->
+        </div>
+    </aside>
+
+    <!-- Main area -->
+    <main class="main">
+        <div class="selected-wrapper">
+            <canvas id="onionCanvas"></canvas>
+        </div>
+        <hr>
+        <div class="carousel" id="carousel">
+            <!-- Do sind die Bilder denna in einer Reihe -->
+        </div>
+    </main>
+</div>
+
+<script src="../js/script.js"></script>
 </body>
 </html>
