@@ -14,10 +14,6 @@
     font-family: sans-serif;
 }
 
-body, html {
-    height: 100%;
-}
-
 .app {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -35,7 +31,7 @@ body, html {
 .project-title {
     font-weight: 600;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid black;
     padding-bottom: 0.5rem;
 }
 
@@ -45,13 +41,40 @@ body, html {
 }
 
 .thumb-grid {
-    background: #d4d4d4;
-    padding: 5px;
+    background: lightgray;
+    padding: 0.5rem;
     display: grid;
     grid-template-columns: repeat(3, 70px);
-    gap: 10px;
+    gap: 0.5rem;
     flex: 1;
     align-content: flex-start;
+}
+
+.thumb {
+    border: 1px solid grey;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-number {
+    position: absolute;
+    bottom: 3px;
+    left: 4px;
+    font-size: 0.7rem;
+    color: #000;
+    text-shadow: 0 0 3px #fff;
 }
 
 .sidebar-buttons {
@@ -67,7 +90,6 @@ body, html {
 }
 
 .main {
-    background: #f0f0f0;
     display: flex;
     flex-direction: column;
     padding: 0.8rem 1.2rem 1.2rem;
@@ -90,14 +112,28 @@ body, html {
     background: #dedede;
     flex: 1;
     padding: 1rem;
-    gap: 1rem;
+    gap: 0;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-right: 1rem;
 }
 
 .selected-wrapper {
-    background: #b3b3b3;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-left: 2px solid black;
+    padding-left: 1rem;
+}
+
+#onionCanvas {
+    width: 100%;
+    height: 100%;
+    background: darkgray;
 }
 
 .carousel {
@@ -107,4 +143,55 @@ body, html {
     align-items: flex-end;
     height: 130px;
     position: relative;
+    gap: 10px;
+}
+
+.carousel-item {
+    position: relative;
+    background: lightgray;
+    border: 1px solid darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.carousel-item.center {
+    width: 140px;
+    height: 110px;
+    z-index: 3;
+}
+
+.carousel-item.side {
+    width: 110px;
+    height: 90px;
+    z-index: 2;
+}
+
+.carousel-item.outer {
+    width: 90px;
+    height: 80px;
+    z-index: 1;
+}
+
+.carousel-thumb {
+    width: 80%;
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-number {
+    position: absolute;
+    bottom: 3px;
+    left: 5px;
+    font-size: 0.9rem;
 }

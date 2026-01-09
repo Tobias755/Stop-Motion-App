@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <title>Onion Skin Project</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/script.js"></script>
 </head>
 <body>
 <div class="app">
+
     <aside class="sidebar">
         <div class="project-title">Projekt 1</div>
 
         <div class="section-title">Images</div>
+
+        <hr>
 
         <div id="thumbGrid" class="thumb-grid">
 
@@ -28,14 +30,26 @@
             <button id="playBtn">Play</button>
         </div>
 
-        <section class="preview-panel">
-        </section>
+        <div class="preview-panel">
+            <div class="controls">
+                <div>Filter (not ready yet)</div>
+            </div>
+
+            <div class="selected-wrapper">
+                <canvas id="onionCanvas"></canvas>
+            </div>
+        </div>
+
+        <hr>
 
         <div class="carousel" id="carousel">
 
         </div>
     </div>
 </div>
+
 <input id="fileInput" type="file" accept="image/*" multiple hidden />
+
+<script src="../js/script.js"></script>
 </body>
 </html>
