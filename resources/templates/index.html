@@ -1,55 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onion Skin Project</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
-<div class="app">
-
-    <aside class="sidebar">
-        <div class="project-title">Projekt 1</div>
-
-        <div class="section-title">Images</div>
-
-        <hr>
-
-        <div id="thumbGrid" class="thumb-grid">
-
-        </div>
-
-        <div class="sidebar-buttons">
-            <button id="importBtn">Import</button>
-            <button id="exportBtn">Export</button>
-        </div>
-    </aside>
-
-    <div class="main">
-        <div class="top-bar">
-            <button id="playBtn">Play</button>
-        </div>
-
-        <div class="preview-panel">
-            <div class="controls">
-                <div>Filter (not ready yet)</div>
+    
+    <div class="app">
+        
+        <!--        IN PROGRESS NAVBAR-->
+        <!--        <nav>-->
+        <!--            <ul>-->
+        <!--                <li>-->
+        <!--                -->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--        </nav>-->
+        
+        <aside class="sidebar">
+            <div class="project-title">Projekt 1</div>
+            
+            <div class="section-title">Images</div>
+            
+            <hr>
+            
+            <div id="thumbGrid" class="thumb-grid">
+            
             </div>
-
-            <div class="selected-wrapper">
-                <canvas id="onionCanvas"></canvas>
+            
+            <div class="sidebar-buttons">
+                <button id="importBtn">Import</button>
+                <button id="exportBtn">Export</button>
             </div>
-        </div>
-
-        <hr>
-
-        <div class="carousel" id="carousel">
-
+        </aside>
+        
+        <div class="main">
+            <div class="top-bar">
+                <button id="playBtn">Play</button>
+            </div>
+            
+            <div class="preview-panel">
+                <div class="controls">
+                    <div>Filter (not ready yet)</div>
+                </div>
+                
+                <div class="selected-wrapper">
+                    <canvas id="onionCanvas"></canvas>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="carousel" id="carousel">
+            
+            </div>
         </div>
     </div>
-</div>
+    
+    <input id="fileInput" type="file" accept="image/*" multiple hidden/>
 
-<input id="fileInput" type="file" accept="image/*" multiple hidden />
-
-<script src="../js/script.js"></script>
 </body>
 </html>
