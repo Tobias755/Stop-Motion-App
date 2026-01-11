@@ -16,7 +16,7 @@ fileInput.addEventListener('change', async (e) => {
     for (const file of files) {
         const src = URL.createObjectURL(file);
         const img = await loadImage(src);
-        images.push({ src, img });
+        images.push({src, img});
     }
     renderThumbnails();
     renderCarousel();
@@ -44,6 +44,7 @@ function loadImage(src) {
         img.src = src;
     });
 }
+
 function renderThumbnails() {
     thumbGrid.innerHTML = '';
     images.forEach((item, index) => {
@@ -69,6 +70,7 @@ function renderThumbnails() {
         thumbGrid.appendChild(div);
     });
 }
+
 function renderCarousel() {
     carousel.innerHTML = '';
     if (!images.length) return;
