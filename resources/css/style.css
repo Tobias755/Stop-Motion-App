@@ -33,12 +33,12 @@ body {
     background-color: var(--primary-color);
     display: grid;
     grid-template-columns: max(15vw, 230px) 1fr;
+    /*grid-template-columns: 15vw 1fr;*/
 }
 
 aside {
     background: linear-gradient(to left, var(--accent-color-light), 1%, var(--primary-color) 15%);
     padding: 32px 16px;
-    /*padding: clamp(0.8rem, 0.8rem, 16px);*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,46 +47,94 @@ aside {
 main {
     display: flex;
     flex-direction: column;
-    padding: 1rem 2rem;
-    /*gap: 0.6rem;*/
+    padding: 32px 16px;
     background: linear-gradient(to right, var(--accent-color-light), 1%, var(--primary-color) max(7%, 50px));
 }
 
 .sidebar-header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-        "project-title project-menu-btn"
-        "scene-title .";
-    /*align-items: center;*/
+    display: flex;
+    flex-direction: column;
 }
 
+/*.project-row {*/
+/*    display: flex;*/
+/*    justify-content: flex-start;*/
+/*    align-items: baseline;*/
+/*}*/
+/*.project-title {*/
+/*    font-size: 1.5rem;*/
+/*    line-height: 1;*/
+/*    font-weight: 600;*/
+/*    border-bottom: 4px solid;*/
+/*    border-image: linear-gradient(to right, var(--accent-color-light) 30%, transparent 90%) 1;*/
+/*    padding-bottom: 8px;*/
+/*    margin-bottom: 24px;*/
+/*    flex: 1 1 auto;*/
+/*    min-width: 0;*/
+/*}*/
+
+
+.project-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 .project-title {
     font-size: 1.5rem;
+    line-height: 1;
     font-weight: 600;
+    /*margin-bottom: 24px;*/
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+}
+.project-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -12px;
     border-bottom: 4px solid;
-    border-image: linear-gradient(to right, var(--accent-color-light) 30%, transparent 75%) 1;
-    padding-bottom: 8px;
-    margin-bottom: 24px;
+    border-image: linear-gradient(to right, var(--accent-color-light) 30%, transparent 90%) 1;
+}
+
+.project-title-text {
+    display: block;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    -webkit-mask-image: linear-gradient(to right, #000 75%, transparent 95%);
+    mask-image: linear-gradient(to right, #000 75%, transparent 95%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
 }
 
 .project-menu-btn {
-    grid-area: project-menu-btn;
-    justify-self: end;
     background: transparent;
     border: none;
+    font-size: 2rem;
     padding: 0;
     margin: 0;
+    border: 2px solid var(--accent-color-light);
+    border-radius: 50%;
     color: inherit;
     cursor: pointer;
-    /*font-size: 1.5rem;*/
-    /*font-weight: 600;*/
-    /*line-height: 1;*/
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    flex: 0 0 auto;
 }
 
 .project-menu-btn i {
     display: block;
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
+    line-height: 1;
 }
 
 .scene-title {
