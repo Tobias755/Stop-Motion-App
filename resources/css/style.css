@@ -38,7 +38,8 @@ body {
 
 aside {
     background: linear-gradient(to left, var(--accent-color-light), 1%, var(--primary-color) 15%);
-    padding: 32px 16px;
+    /*padding: 32px 16px;*/
+    padding: 3vh 0.6vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,7 +48,8 @@ aside {
 main {
     display: flex;
     flex-direction: column;
-    padding: 32px 16px;
+    /*padding: 32px 16px;*/
+    padding: 3vh 0.6vw;
     background: linear-gradient(to right, var(--accent-color-light), 1%, var(--primary-color) max(7%, 50px));
 }
 
@@ -78,25 +80,29 @@ main {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
 }
+
 .project-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 1;
     font-weight: 600;
     /*margin-bottom: 24px;*/
+    /*margin-bottom: 50px;*/
     flex: 1 1 auto;
     min-width: 0;
     position: relative;
 }
-.project-title::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -12px;
-    border-bottom: 4px solid;
-    border-image: linear-gradient(to right, var(--accent-color-light) 30%, transparent 90%) 1;
-}
+
+/*.project-title::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: -12px;*/
+/*    border-bottom: 4px solid;*/
+/*    border-image: linear-gradient(to right, var(--accent-color-light) 30%, transparent 90%) 1;*/
+/*}*/
 
 .project-title-text {
     display: block;
@@ -113,17 +119,18 @@ main {
 }
 
 .project-menu-btn {
-    background: transparent;
     border: none;
-    font-size: 2rem;
+    background: transparent;
+    /*background: blue;*/
+    font-size: 1.8rem;
     padding: 0;
     margin: 0;
     border: 2px solid var(--accent-color-light);
     border-radius: 50%;
-    color: inherit;
+    color: var(--text-color);
     cursor: pointer;
-    width: 2rem;
-    height: 2rem;
+    width: 1em;
+    height: 1em;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -131,21 +138,27 @@ main {
     flex: 0 0 auto;
 }
 
-.project-menu-btn i {
+.project-menu-btn svg {
     display: block;
-    /*font-size: 1.5rem;*/
-    line-height: 1;
+    fill: currentColor;
+    height: 90%;
+}
+
+.sidebar-header hr {
+
 }
 
 .scene-title {
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    /*margin-bottom: 0.5rem;*/
+    margin-bottom: 0.6vh;
     font-weight: 500;
 }
 
 .thumb-grid {
     padding: 10px;
     border: 4px solid var(--accent-color-light);
-    border-radius: 0.7em;
+    border-radius: 12px;
     corner-shape: squircle;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(70px, auto));
@@ -177,19 +190,20 @@ main {
     position: absolute;
     bottom: 3px;
     left: 4px;
+    /*font-size muss noch angepasst werden*/
     font-size: 0.7rem;
     color: #000;
     text-shadow: 0 0 3px #fff;
 }
 
-.sidebar-buttons {
+.sidebar-footer {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
     margin-top: 1rem;
 }
 
-.sidebar-buttons button {
+.sidebar-footer button {
     padding: 0.3rem 0.8rem;
     cursor: pointer;
 }
