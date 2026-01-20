@@ -83,6 +83,7 @@ fileInput.addEventListener('change', async (e) => {
     renderCarousel();
     drawCurrent();
 });
+
 exportBtn.addEventListener('click', () => {
     if (!images.length || isPlaying) return;
 
