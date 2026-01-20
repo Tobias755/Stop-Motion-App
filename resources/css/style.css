@@ -5,19 +5,18 @@
     font-weight: normal;
     font-style: normal;
 }
-*/
+/**!*/
 
 :root {
     --primary-color: #09001d;
-    --accent-color-light: #220071;
-    /*--hover-color: #272832;*/
-    /*--accent-color: #0071ff;*/
+    --accent-color-mid: #220071;
+    --accent-color-light: #4d00ff;
     --text-color: #c9c9c9;
 }
 
 html {
+    /*font-family: Monocraft, sans-serif;*/
     font-family: sans-serif;
-    /*font-size: clamp(1rem, 0.7rem + 0.5vw, 2rem);*/
     color: var(--text-color);
 }
 
@@ -25,6 +24,9 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-height: 100vh;
+    max-height: 100vdh;
+    /*font-family: Monocraft, sans-serif;*/
 }
 
 body {
@@ -36,7 +38,7 @@ body {
 }
 
 aside {
-    background: linear-gradient(to left, var(--accent-color-light), 1%, var(--primary-color) 15%);
+    background: linear-gradient(to left, var(--accent-color-mid), 1%, var(--primary-color) 15%);
     padding: 3vh 0.6vw;
     display: flex;
     flex-direction: column;
@@ -50,31 +52,13 @@ main {
     display: flex;
     flex-direction: column;
     padding: 3vh 0.6vw;
-    background: linear-gradient(to right, var(--accent-color-light), 1%, var(--primary-color) max(7%, 50px));
+    background: linear-gradient(to right, var(--accent-color-mid), 1%, var(--primary-color) max(7%, 50px));
 }
 
 .sidebar-header {
     display: flex;
     flex-direction: column;
 }
-
-/*.project-row {*/
-/*    display: flex;*/
-/*    justify-content: flex-start;*/
-/*    align-items: baseline;*/
-/*}*/
-/*.project-title {*/
-/*    font-size: 1.5rem;*/
-/*    line-height: 1;*/
-/*    font-weight: 600;*/
-/*    border-bottom: 4px solid;*/
-/*    border-image: linear-gradient(to right, var(--accent-color-light) 30%, transparent 90%) 1;*/
-/*    padding-bottom: 8px;*/
-/*    margin-bottom: 24px;*/
-/*    flex: 1 1 auto;*/
-/*    min-width: 0;*/
-/*}*/
-
 
 .project-row {
     display: flex;
@@ -159,7 +143,7 @@ main {
 .thumb-grid {
     padding: 10px;
     margin-bottom: 1vh;
-    border: 4px solid var(--accent-color-light);
+    border: 4px solid var(--accent-color-mid);
     border-radius: 12px;
     corner-shape: squircle;
     display: grid;
@@ -169,7 +153,6 @@ main {
     row-gap: 8px;
     flex: 1;
     align-content: flex-start;
-    /*align-items: flex-start;*/
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: scroll;
@@ -189,7 +172,6 @@ main {
     cursor: pointer;
     overflow: hidden;
     aspect-ratio: 1 / 1;
-    /*display: flex;*/
     display: block;
     flex-direction: column;
     text-align: center;
@@ -205,13 +187,13 @@ main {
 }
 
 .thumb-number {
+    color: var(--text-color);
+    text-shadow: 2px 2px 2px black;
+    font-size: 1.1rem;
+    line-height: 1;
     position: absolute;
-    bottom: 3px;
+    bottom: 2px;
     left: 4px;
-    /*font-size muss noch angepasst werden*/
-    font-size: 0.7rem;
-    color: #000;
-    text-shadow: 0 0 3px #fff;
 }
 
 .sidebar-footer {
@@ -222,12 +204,11 @@ main {
 
 .sidebar-footer button {
     color: var(--text-color);
-    /*background: var(--accent-color-light);*/
-    background: radial-gradient(circle, var(--accent-color-light), var(--primary-color));
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    corner-shape: squircle;
+    background: radial-gradient(circle farthest-corner, transparent 50%, var(--accent-color-light));
+    border: 3px solid var(--accent-color-light);
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
     padding: 10px 0;
     flex: 1 1;
     cursor: pointer;
@@ -237,14 +218,8 @@ main {
 }
 
 .preview-panel {
-    /*display: grid;*/
     display: inline-flex;
-    /*grid-template-columns: repeat(auto-fit, 1fr min(200px));*/
-    /*grid-template-columns: 1fr 200px;*/
-    /*background: #dedede;*/
     flex: 1;
-    /*padding: 1rem;*/
-    /*gap: 0;*/
 }
 
 .controls {
@@ -252,25 +227,18 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    /*padding-right: 1rem;*/
-    border: 4px solid var(--accent-color-light);
+    border: 4px solid var(--accent-color-mid);
     border-left: 0;
     border-radius: 0 0.7em 0.7em 0;
     corner-shape: squircle;
-    /*padding: 0.5rem;*/
-}
-
-.selected-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*padding-left: 1rem;*/
 }
 
 #onionCanvas {
-    width: 100%;
-    height: 100%;
     background: black;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel {
@@ -285,8 +253,9 @@ main {
 
 .carousel-item {
     position: relative;
-    background: lightgray;
-    border: 1px solid darkgray;
+    background: radial-gradient(circle 60px, var(--accent-color-mid) 55%, var(--accent-color-light));
+    border-radius: 15px;
+    corner-shape: squircle;
     display: flex;
     align-items: center;
     justify-content: center;
