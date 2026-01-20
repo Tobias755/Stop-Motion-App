@@ -158,6 +158,7 @@ main {
 
 .thumb-grid {
     padding: 10px;
+    margin-bottom: 1vh;
     border: 4px solid var(--accent-color-light);
     border-radius: 12px;
     corner-shape: squircle;
@@ -214,20 +215,32 @@ main {
 }
 
 .sidebar-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .sidebar-footer button {
-    padding: 0.3rem 0.8rem;
+    color: var(--text-color);
+    /*background: var(--accent-color-light);*/
+    background: radial-gradient(circle, var(--accent-color-light), var(--primary-color));
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    corner-shape: squircle;
+    padding: 10px 0;
+    flex: 1 1;
     cursor: pointer;
+    min-width: 0;
+    justify-content: center;
+    align-content: center;
 }
 
 .preview-panel {
-    display: grid;
-    grid-template-columns: 1fr 200px;
+    /*display: grid;*/
+    display: inline-flex;
+    /*grid-template-columns: repeat(auto-fit, 1fr min(200px));*/
+    /*grid-template-columns: 1fr 200px;*/
     /*background: #dedede;*/
     flex: 1;
     /*padding: 1rem;*/
@@ -235,6 +248,7 @@ main {
 }
 
 .controls {
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
@@ -244,14 +258,6 @@ main {
     border-radius: 0 0.7em 0.7em 0;
     corner-shape: squircle;
     /*padding: 0.5rem;*/
-}
-
-#playBtn {
-    /*padding: 0.4rem 0.9rem;*/
-    cursor: pointer;
-    margin: auto;
-    margin-bottom: 0.5rem;
-    padding: 0.4rem 2.5rem;
 }
 
 .selected-wrapper {
