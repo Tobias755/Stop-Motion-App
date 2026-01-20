@@ -18,6 +18,8 @@ let draggedIndex = null;
 let recorder = null;
 let recordedChunks = [];
 
+let isExporting = false;
+
 function onDragStart (e) {
     draggedIndex = Number(e.currentTarget.dataset.index);
 }
@@ -85,8 +87,9 @@ fileInput.addEventListener('change', async (e) => {
 });
 
 exportBtn.addEventListener('click', () => {
-    if (!images.length || isPlaying) return;
+    if (!images.length || isPlaying || isExporting) return;
 
+    isExporting = true;
     stopPlayback();
     showOnion = false;
     currentIndex = 0;
@@ -97,7 +100,7 @@ exportBtn.addEventListener('click', () => {
     recorder.start();
 
     let frame = 0;
-    const fps = 5;
+    const fps = 2;
     const frameDuration = 1000 / fps;
 
     const exportInterval = setInterval(() => {
@@ -105,6 +108,7 @@ exportBtn.addEventListener('click', () => {
             clearInterval(exportInterval);
             recorder.stop();
             showOnion = true;
+            isExporting = false;
             drawCurrent();
             return;
         }
@@ -264,14 +268,14 @@ playBtn.addEventListener('click', () => {
 
             renderCarousel();
             drawCurrent();
-        }, 200);
+        }, 500);
     } else {
         // stop manually
         stopPlayback();
     }
 });
 
-const stream = onionCanvas.captureStream(5); // 5 fps Stop-Motion
+const stream = onionCanvas.captureStream(2); // 2 fps Stop-Motion
 recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
 
 recorder.ondataavailable = (e) => {
