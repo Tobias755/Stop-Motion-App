@@ -18,11 +18,13 @@ let draggedIndex = null;
 let recorder = null;
 let recordedChunks = [];
 
-function onDragStart(e) {
+let isExporting = false;
+
+function onDragStart (e) {
     draggedIndex = Number(e.currentTarget.dataset.index);
 }
 
-function onDragOver(e) {
+function onDragOver (e) {
     e.preventDefault();
 }
 
@@ -85,8 +87,9 @@ fileInput.addEventListener('change', async (e) => {
 });
 
 exportBtn.addEventListener('click', () => {
-    if (!images.length || isPlaying) return;
+    if (!images.length || isPlaying || isExporting) return;
 
+    isExporting = true;
     stopPlayback();
     showOnion = false;
     currentIndex = 0;
@@ -97,7 +100,7 @@ exportBtn.addEventListener('click', () => {
     recorder.start();
 
     let frame = 0;
-    const fps = 5;
+    const fps = 2;
     const frameDuration = 1000 / fps;
 
     const exportInterval = setInterval(() => {
@@ -105,6 +108,7 @@ exportBtn.addEventListener('click', () => {
             clearInterval(exportInterval);
             recorder.stop();
             showOnion = true;
+            isExporting = false;
             drawCurrent();
             return;
         }
@@ -115,7 +119,6 @@ exportBtn.addEventListener('click', () => {
         frame++;
     }, frameDuration);
 });
-
 function loadImage(src) {
     return new Promise((resolve) => {
         const img = new Image();
@@ -236,10 +239,12 @@ function drawCurrent() {
     if (showOnion) {
         drawIndex(currentIndex - 1, 1); // previous, faint
         drawIndex(currentIndex, 0.8,);       // current, full
-    } else {
+    }
+    else {
         drawIndex(currentIndex, 1);
     }
 }
+
 
 const playBtn = document.getElementById('playBtn');
 
@@ -257,28 +262,28 @@ playBtn.addEventListener('click', () => {
                 currentIndex++;
 
             } else {
-                stopPlayback();
-                return;
+               stopPlayback();
+               return;
             }
 
             renderCarousel();
             drawCurrent();
-        }, 200);
+        }, 500);
     } else {
         // stop manually
         stopPlayback();
     }
 });
 
-const stream = onionCanvas.captureStream(5); // 5 fps Stop-Motion
-recorder = new MediaRecorder(stream, {mimeType: 'video/webm'});
+const stream = onionCanvas.captureStream(2); // 2 fps Stop-Motion
+recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
 
 recorder.ondataavailable = (e) => {
     if (e.data && e.data.size > 0) recordedChunks.push(e.data);
 };
 
 recorder.onstop = () => {
-    const blob = new Blob(recordedChunks, {type: 'video/webm'});
+    const blob = new Blob(recordedChunks, { type: 'video/webm' });
     recordedChunks = [];
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -287,3 +292,4 @@ recorder.onstop = () => {
     a.click();
     URL.revokeObjectURL(url);
 };
+
