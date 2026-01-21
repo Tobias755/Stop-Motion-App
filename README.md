@@ -1,3 +1,8 @@
+## Link to Web App (GitHub Page):
+https://tobias755.github.io/Stop-Motion-App/
+
+---
+
 ### Steps for using Vite:
 
 1. Clone repo
